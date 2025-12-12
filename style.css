@@ -1,0 +1,133 @@
+/* --- Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+/* --- Fade-in on startup --- */
+#fade-in {
+  position: fixed;
+  inset: 0;
+  background: black;
+  animation: fadeOut 0.8s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* --- Background (scene image / gradient) --- */
+#scene-bg {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.9);
+  transition: background 0.4s ease-out, filter 0.3s;
+}
+
+/* --- Dial container --- */
+#dial {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width: 280px;
+  height: 280px;
+}
+
+/* Outer metal ring */
+#metal-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #777, #222);
+  box-shadow:
+    inset 0 0 30px rgba(255,255,255,0.2),
+    inset 0 0 80px rgba(0,0,0,0.8),
+    0 10px 25px rgba(0,0,0,0.8);
+}
+
+/* Color ring */
+#ring {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  border-radius: 50%;
+  background: conic-gradient(
+    #ff4500 0deg,
+    #ff9850 120deg,
+    #ffffff 180deg,
+    #70d6ff 270deg,
+    #00aaff 360deg
+  );
+  filter: blur(3px);
+  transition: transform 0.2s ease-out;
+}
+
+/* Center (icon + value) */
+#center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130px;
+  height: 130px;
+  background: rgba(0,0,0,0.45);
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+#icon {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+#value {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+/* --- Scene buttons --- */
+#scene-buttons {
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+#scene-buttons button {
+  padding: 12px 22px;
+  border-radius: 24px;
+  border: none;
+  font-size: 18px;
+  background: #333;
+  color: white;
+  opacity: 0.8;
+}
+
+#scene-buttons button.active {
+  background: #0af;
+  opacity: 1;
+  box-shadow: 0 0 15px #09f;
+}
