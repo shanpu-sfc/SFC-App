@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <title>Shanpu Touch Screen Knob SFC</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="fade-in"></div>
+
+  <div id="scene-bg"></div>
+
+  <div id="dial">
+      <div id="metal-ring"></div>
+      <div id="ring"></div>
+      <div id="center">
+          <div id="icon">❄️</div>
+          <div id="value">23°C</div>
+      </div>
+  </div>
+
+  <div id="scene-buttons">
+      <button data-scene="car" class="active">Car</button>
+      <button data-scene="home">Home</button>
+      <button data-scene="fan">Fan</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
